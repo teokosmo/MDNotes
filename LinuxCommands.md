@@ -204,7 +204,7 @@ curl -k 'https://etssuat-admin.enexgroup.gr/ETSSUAT/mojsws/etssws/referencePrice
 
 ## ln
 
-- ```ln -s /path/to/folder/```, create symbolic link (shortcut) from current directory to folder /path/to/folder/
+- ```ln -s /path/to/folder/ symbolic-link-name```, create symbolic link (shortcut) with name symbolic-link-name from current directory to folder /path/to/folder/
 
 ## pkill
 
