@@ -426,3 +426,13 @@ To reset the command location hash either start a new shell, or execute PATH="$P
 [Installation guide for Windows 10](https://docs.microsoft.com/en-us/windows/wsl/install-win10)
 
 Follow instructions [here](https://gist.github.com/noygal/6b7b1796a92d70e24e35f94b53722219) for wsl and [nvm](https://github.com/nvm-sh/nvm) installation.
+
+### redirect node.js app traffic to fiddler proxy (running in windows)
+
+1. Get WSL interface IP wsl's network adapter in Windows
+2. Setup proxy in user's current session with commands:
+```
+export http_proxy=http://wsl_interface_ip.gr:8080
+export https_proxy=http://wsl_interface_ip:8080
+```
+3. run node.js app with envrionment variable `env NODE_TLS_REJECT_UNAUTHORIZED=0` 
