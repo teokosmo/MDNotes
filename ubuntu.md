@@ -436,3 +436,13 @@ export http_proxy=http://wsl_interface_ip.gr:8080
 export https_proxy=http://wsl_interface_ip:8080
 ```
 3. run node.js app with envrionment variable `env NODE_TLS_REJECT_UNAUTHORIZED=0` 
+
+
+## GIT
+
+### Setup hook prepare-commit-msg
+
+Execute the following command from the root folder of your project, [reference](https://bitbucket.org/snippets/atlassian/qedp7d#comment-3870553)
+```
+curl https://gist.githubusercontent.com/jared-christensen/f9db573183ba76c12b6125eda6125ebc/raw/e02ab3b97ac930ab5c2ddc343fb54ebddd85ee96/prepare-commit-msg.sh > .git/hooks/prepare-commit-msg && chmod u+x .git/hooks/prepare-commit-msg
+```
