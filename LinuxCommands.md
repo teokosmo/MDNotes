@@ -311,3 +311,11 @@ awk -F" " -v str="ping" 'index(tolower($7), tolower(str))' ex210208.log
 get user `teo` uid
 
 ```id -u teo```
+
+## fuser
+
+[Reference](https://www.computerhope.com/unix/fuser.htm)
+
+kill process that has binded tcp port 5000
+
+`fuser -v -k -n tcp 4205`
