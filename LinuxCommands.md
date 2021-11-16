@@ -318,4 +318,4 @@ get user `teo` uid
 
 kill process that has binded tcp port 5000
 
-`fuser -v -k -n tcp 4205`
+`fuser -v -k -n tcp 5000`
