@@ -1,4 +1,4 @@
-# Bundle size
+# Bundle size analysis
 
 ## webpack-bundle-analyzer
 
