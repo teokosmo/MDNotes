@@ -12,6 +12,13 @@
 2. <https://testing-angular.com/testing-components-depending-on-services/>
 3. <https://infinum.com/handbook/frontend/angular/angular-guidelines-and-best-practices/testing#typing-test-doubles>
 
+### Basic requiremenets
+
+1. Equivalence of fake and original: The fake must have a type derived from the original.
+2. Effective faking: the original stays untouched.
+
+[Reference](https://testing-angular.com/faking-dependencies/#faking-dependencies)
+
 ## Get service instance inside test script
 
 1. In beforeEach hook with TestBed.inject() e.g. `nameOfService = TestBed.inject(NameOfService);` 
@@ -37,4 +44,30 @@ To overcome this utilize TestBed.overrideComponent
 [Reference](https://angular.io/guide/testing-utility-apis)
 
 ## Testing HTTP requests
-[Reference](https://angular.io/guide/http#testing-http-requests)
+
+**References**
+
+1. <https://angular.io/guide/http#testing-http-requests>
+2. <https://testing-angular.com/testing-services/#testing-a-service-that-sends-http-requests>
+
+
+## Data attibutes for testing purposes
+
+use attribute `data-testid` for selecting DOM elements in tests
+
+**References**
+
+1. <https://github.com/vtex/styleguide/issues/848>
+2. <https://medium.com/agilix/angular-and-cypress-data-cy-attributes-d698c01df062>
+3. <https://docs.cypress.io/guides/references/best-practices>
+
+
+## Automatic change detection
+
+Use service `ComponentFixtureAutoDetect` in testing module providers like so
+```
+{ provide: ComponentFixtureAutoDetect, useValue: true }
+```
+The `ComponentFixtureAutoDetect` service responds to asynchronous activities such as promise resolution, timers, and DOM events. But a direct, synchronous update of the component property is invisible. The test must call fixture.detectChanges() manually to trigger another cycle of change detection.
+
+[Reference](https://angular.io/guide/testing-components-scenarios#automatic-change-detection)
