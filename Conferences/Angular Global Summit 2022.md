@@ -130,4 +130,5 @@ Consider security by running docker with a user (e.g. node) instead of root.
 
 ## Useful Links
 
-<.>
+1. [nodejs containerization](https://snyk.io/blog/10-best-practices-to-containerize-nodejs-web-applications-with-docker/)
+2. [CSS architecture](https://www.youtube.com/watch?v=6pUYZjEqdvg)
