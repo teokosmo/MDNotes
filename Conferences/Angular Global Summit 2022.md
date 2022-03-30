@@ -14,7 +14,7 @@ Redux pattern:
 * Actions
 * Selectors
 
-### PWA
+### Building PWA apps
 
 To create an Angular PWA application use [Workbox](https://developers.google.com/web/tools/workbox)
 Use Service Worker (SW) & Cache Storage (cache).
@@ -26,6 +26,46 @@ Strategies to follow when building an Angular PWA app:
 * NetworkFirst
 * NetworkOnly
 * StaleWhileRevalidate
+
+### Building web3 apps
+
+Blockchain is a decentralized database
+
+**Blockchain types**
+
+1. Public Blockchains
+   * Bitcoin
+   * Ethereum
+2. Private Blockchains
+    * Hyperledger
+3. Consortium Blockchains
+    * Energy Web Foundation
+
+**Technical Stack**
+
+1. Smart Contracts (Backend)
+    * Solidity
+    * Clarity
+    * Rust
+    * C++
+2. Web3 Scripts (Frontend)
+    * Javascript (web3.js, ethers.js)
+    * Python
+    * Rust
+    * Go
+3. API Calls
+
+**Web3 Libraries**
+
+* Web3.js
+* Ethers.js
+* NFT-aggregator
+* Price-indexer
+* WalletConnect
+
+**Defi & NFTs**
+
+[CoinmarketCap](https://coinmarketcap.com/)
 
 ### Building web apps with accessibility in focus
 
@@ -55,6 +95,39 @@ For SSG a static file server (CDN) is used e.g. [Puppeteer](https://github.com/p
 
 To build static content for Angular app, use [Scully](https://scully.io/). Scully finds out all Angular routes and generates respective html files.
 
-### Tips
+## DAY 2
+
+
+### NgRx
+
+### CSS new stuff
+
+1. pseudo selector [where](https://developer.mozilla.org/en-US/docs/Web/CSS/:where)
+2. property [direction](https://developer.mozilla.org/en-US/docs/Web/CSS/direction)
+3. property [writing-mode](https://developer.mozilla.org/en-US/docs/Web/CSS/writing-mode)
+4. [margin-inline](https://developer.mozilla.org/en-US/docs/Web/CSS/margin-inline)
+
+### Angular workspace/libraries
+
+**NG Workspace**
+
+Create apps and libraries in Angular workspace in a Monorepo.
+
+In a Monorepo all libraries and apps have a single version.
+
+**Nx**
+
+### Dockerize Angular app
+
+Run docker with **multi-stage builds**.
+
+Consider security by running docker with a user (e.g. node) instead of root.
+
+
+## Tips
 
 1. use `ng add` to install an npm package in angular app
+
+## Useful Links
+
+<.>
