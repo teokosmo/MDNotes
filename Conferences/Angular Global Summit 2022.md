@@ -97,6 +97,7 @@ To build static content for Angular app, use [Scully](https://scully.io/). Scull
 
 ## DAY 2
 
+<https://www.youtube.com/watch?v=_BHkB9KxMBA>
 
 ### NgRx
 
@@ -117,18 +118,80 @@ In a Monorepo all libraries and apps have a single version.
 
 **Nx**
 
+[Ref](https://nx.dev/)
+
 ### Dockerize Angular app
 
 Run docker with **multi-stage builds**.
 
-Consider security by running docker with a user (e.g. node) instead of root.
+Consider security by running docker with a privileged user (e.g. node) instead of root.
 
+### Unit Testing of Angular Material CDK
+
+**Component harness**
+
+[Ref](https://material.angular.io/cdk/test-harnesses/overview)
+
+Write ComponentHarness classes for your library to be used by the users of your library. For example Angualar Material library has a component harness implementation for each component so that we use this component harness when writing tests for our component that utilizes Angular Material components.
+
+### Web Components
+
+Use [Angular elements](https://angular.io/guide/elements) to convert any Angular component to a framework agnostic Web Component (custom element).
+
+[github example](https://github.com/marcellkiss/angular-web-component-example)
+
+### Micro Frontends
+
+[Building Angular Micro Frontend with NgRx state sharing](https://itnext.io/building-angular-micro-frontend-with-ngrx-state-sharing-and-nx-cli-7e9af10ebd03)
+
+### Webpack Module Federation
+
+[documentation](https://webpack.js.org/concepts/module-federation/)
+
+[npm package](https://www.npmjs.com/package/@angular-architects/module-federation)
+
+
+### Angular performance
+
+[RxAngular](https://opencollective.com/rx-angular)
+
+**Network optimizations**
+
+Add the following to script and link tags when requesting css & js files
+* preconnect
+* preload
+* prefetch
+* defer
+* async
+
+Add attribute: loading="lazy" in tags `img` & `iframe`. In a list of images do not add "lazy" on the first image.
+
+**use RxAngular in components**
+
+Use `rxFor` instead of `ngFor` and `rxIf` instead of `ngIf`.
+
+Do not use async pipe in templates, just the observable.
+
+**zone**
+
+Drop zone library. Just use app.tick when routes rendering ends.
+
+### Design Systems
+
+Key features of a design system:
+
+* Design Tokens
+* Design Kit
+* Components Library
+* Dynamic Documentation
 
 ## Tips
 
 1. use `ng add` to install an npm package in angular app
+2. Use Chrome's user flows for performance testing. Check [here](https://www.debugbear.com/blog/chrome-devtools-user-flow-recorder)
 
 ## Useful Links
 
 1. [nodejs containerization](https://snyk.io/blog/10-best-practices-to-containerize-nodejs-web-applications-with-docker/)
 2. [CSS architecture](https://www.youtube.com/watch?v=6pUYZjEqdvg)
+3. [Svelte](https://svelte.dev/)
