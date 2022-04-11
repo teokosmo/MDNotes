@@ -2,7 +2,10 @@
 
 ## fakeAsync, tick & spyOn to simulate data retrieval from services
 
-[Reference](https://codehandbook.org/how-to-unit-test-angular-component-with-service/)
+**Examples**
+
+1. [Codehandbook](https://codehandbook.org/how-to-unit-test-angular-component-with-service/)
+2. [StackOverflow](https://stackoverflow.com/a/53344611)
 
 
 ## Mock services (test doubles)
