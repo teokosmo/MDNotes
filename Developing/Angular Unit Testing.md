@@ -1,6 +1,6 @@
 # Unit Testing
 
-## fakeAsync & spyOn to simulate data retrieval from services
+## fakeAsync, tick & spyOn to simulate data retrieval from services
 
 [Reference](https://codehandbook.org/how-to-unit-test-angular-component-with-service/)
 
