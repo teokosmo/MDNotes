@@ -54,6 +54,10 @@ To overcome this utilize TestBed.overrideComponent
 2. <https://testing-angular.com/testing-services/#testing-a-service-that-sends-http-requests>
 
 
+## Routing testing
+
+[Reference](https://dev.to/this-is-angular/testing-angular-routing-components-with-the-routertestingmodule-4cj0)
+
 ## Data attibutes for testing purposes
 
 use attribute `data-testid` for selecting DOM elements in tests
@@ -74,3 +78,29 @@ Use service `ComponentFixtureAutoDetect` in testing module providers like so
 The `ComponentFixtureAutoDetect` service responds to asynchronous activities such as promise resolution, timers, and DOM events. But a direct, synchronous update of the component property is invisible. The test must call fixture.detectChanges() manually to trigger another cycle of change detection.
 
 [Reference](https://angular.io/guide/testing-components-scenarios#automatic-change-detection)
+
+## Nested components
+
+Create stub components to emulate nested components
+e.g.
+```
+@Component({selector: '[px-basket]', template: ''})
+  class BasketStubComponent {
+}
+```
+
+[Reference](https://angular.io/guide/testing-components-scenarios#nested-component-tests)
+
+## Component lifecycle hooks
+
+For each spec (it) TestBed method `createComponent`, usually contained in beforeEach, is executed.
+
+`CreateComponent` executes component's following methods in order of appearance
+1. constructor
+2. ngOnInit hook
+
+**References**
+
+1. <https://www.testim.io/blog/angular-component-testing-detailed-guide/>
+2. <https://stackoverflow.com/a/49234888>
+3. <https://www.damirscorner.com/blog/posts/20210101-TestingAngularLifecycleHooks.html>
