@@ -8,14 +8,15 @@
 2. [StackOverflow](https://stackoverflow.com/a/53344611)
 
 
-## Mock services (test doubles)
+## Mock services (test doubles/stubs)
 
 **References**
 1. <https://angular.io/guide/testing-components-scenarios#provide-service-test-doubles>
 2. <https://testing-angular.com/testing-components-depending-on-services/>
 3. <https://infinum.com/handbook/frontend/angular/angular-guidelines-and-best-practices/testing#typing-test-doubles>
+4. <https://angular.io/guide/testing-components-scenarios#override-component-providers>, in the context of overriding component service providers
 
-### Basic requiremenets
+### Faking dependencies requirements
 
 1. Equivalence of fake and original: The fake must have a type derived from the original.
 2. Effective faking: the original stays untouched.
@@ -31,6 +32,13 @@
 
     [Reference](https://angular.io/guide/testing-components-scenarios#get-injected-services)
 
+## Mock service properties
+
+Use `Object.defineProperty`, for example to mock `JointOfferService.devices` do the following:
+```
+Object.defineProperty(jointOfferService, 'devices', { value: [tmpDevice] });
+```
+[Reference](https://stackoverflow.com/a/69798524)
 
 ## Override component providers
 
@@ -38,9 +46,12 @@ When a component injects a service in its providers `@Component({ …, providers
 
 then stubbing the service in the providers of TestBed.configureTestingModule is not possible. Also it is not possible to get the instance of this service via fixture’s injector.
 
-To overcome this utilize TestBed.overrideComponent
+To overcome this utilize `TestBed.overrideComponent`
 
-[Reference](https://angular.io/guide/testing-components-scenarios#override-component-providers)
+**References**
+
+1. <https://angular.io/guide/testing-components-scenarios#override-component-providers>
+2. <https://medium.com/ngconf/how-to-override-component-providers-in-angular-unit-tests-b73b47b582e3>
 
 ## Angular Testing Utility APIs
 
