@@ -53,6 +53,10 @@ To overcome this utilize `TestBed.overrideComponent`
 1. <https://angular.io/guide/testing-components-scenarios#override-component-providers>
 2. <https://medium.com/ngconf/how-to-override-component-providers-in-angular-unit-tests-b73b47b582e3>
 
+## Testing Attribute Directives
+
+<https://angular.io/guide/testing-attribute-directives>
+
 ## Angular Testing Utility APIs
 
 [Reference](https://angular.io/guide/testing-utility-apis)
@@ -115,3 +119,48 @@ For each spec (it) TestBed method `createComponent`, usually contained in before
 1. <https://www.testim.io/blog/angular-component-testing-detailed-guide/>
 2. <https://stackoverflow.com/a/49234888>
 3. <https://www.damirscorner.com/blog/posts/20210101-TestingAngularLifecycleHooks.html>
+
+## spyOn window.location object
+
+1. inject window.location in component as described in <https://itnext.io/testing-browser-window-location-in-angular-application-e4e8388508ff> and then mock injection token as described in <https://www.reddit.com/r/angular/comments/p35yz2/mock_locationreload_in_jasminekarma_test_angular/h8s6y56/?utm_source=share&utm_medium=web2x&context=3>
+
+i.e. 
+```
+// ****************
+// app.component.ts
+// ****************
+export const LOCATION_TOKEN = new InjectionToken<Location>('Window location object');
+@Component({
+  providers: [
+    { provide: LOCATION_TOKEN, useValue: window.location }
+  ]
+})
+export class AppComponent {
+  constructor(@Inject(LOCATION_TOKEN) private location: Location) {}
+  
+// *********************
+// app.component.spec.ts
+// *********************
+const locationStub = {
+  search: 'proximus.be/?v5=starter',
+  assign: jasmine.createSpy().and.callFake(() => {}),
+};
+beforeEach(async () => {
+        await TestBed.configureTestingModule({
+            declarations: [],
+            imports: [
+
+            ],
+            providers: []
+        })
+            .overrideComponent(PackSwitcherComponent, {
+              set: {
+                providers: [{ provide: LOCATION_TOKEN, useValue: locationStub }],
+              },
+            })
+            .compileComponents();
+    });
+```
+
+2. spyOn component method that contains window reference as described in
+<https://thetombomb.com/posts/stubbing-location-reload-in-jasmine-tests>
