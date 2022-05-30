@@ -164,3 +164,89 @@ beforeEach(async () => {
 
 2. spyOn component method that contains window reference as described in
 <https://thetombomb.com/posts/stubbing-location-reload-in-jasmine-tests>
+
+## mock global variables 
+
+1. (window as any).globalVariable = globalVariableStub
+2. configure files in karma.conf.js, e.g.
+    ```
+    files: [
+      "./global-variables-stubs.js"
+    ]
+    ```
+<https://stackoverflow.com/questions/19263586/global-variables-in-karma-test-runner>
+
+## use 'new' compoent instead of TestBed
+
+instantiate component with `new` instead of TestBed for cleaner testing code e.g.
+```
+describe('MyComponent', () => {
+
+  let component: MyComponent;
+
+  beforeEach(() => {
+    component = new MyComponent(mockMyService());
+  });
+
+  describe('ngAfterViewInit', () => {
+    it('should do stuff', () => {
+      component.ngAfterViewInit();
+      expect(component.something.toEqual('something');
+    });
+  });
+
+});
+```
+<https://stackoverflow.com/a/70883069>
+
+## spy on event emitter
+
+```
+it('should emit on click', () => {
+   const fixture = TestBed.createComponent(MyComponent);
+   // spy on event emitter
+   const component = fixture.componentInstance; 
+   spyOn(component.myEventEmitter, 'emit');
+
+   // trigger the click
+   const nativeElement = fixture.nativeElement;
+   const button = nativeElement.querySelector('button');
+   button.dispatchEvent(new Event('click'));
+
+   fixture.detectChanges();
+
+   expect(component.myEventEmitter.emit).toHaveBeenCalledWith('hello');
+});
+
+@Component({ ... })
+class MyComponent {
+  @Output myEventEmitter = new EventEmitter<string>();
+
+  buttonClick() {
+    this.myEventEmitter.emit('hello');
+  }
+}
+```
+<https://stackoverflow.com/a/35319780>
+
+## mock url params
+
+Override ActivatedRoute properties `queryParams` and `snapshot.queryParams`
+```
+let activatedRoute: ActivatedRoute;
+activatedRoute = TestBed.inject(ActivatedRoute);
+
+const urlParamsStub = {
+  internet: 'CZYCO,PWASX',
+  mobile: null,
+};
+
+
+Object.defineProperty(activatedRoute, 'queryParams', {
+  value: of(urlParamsStub),
+});
+
+Object.defineProperty(activatedRoute.snapshot, 'queryParams', {
+  value: urlParamsStub,
+});
+```
