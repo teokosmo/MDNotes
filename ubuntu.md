@@ -427,7 +427,10 @@ To reset the command location hash either start a new shell, or execute PATH="$P
 
 [nvm](https://github.com/nvm-sh/nvm)
 
+[nvm commands](https://developpaper.com/nvm-command-line-use/)
+
 [nvm commands cheat sheet](https://gist.github.com/chranderson/b0a02781c232f170db634b40c97ff455)
+
 
 ## WSL
 
