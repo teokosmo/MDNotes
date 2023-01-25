@@ -421,6 +421,19 @@ Note: the node command changed location and the old location may be remembered i
 To reset the command location hash either start a new shell, or execute PATH="$PATH"
 ```
 
+**Node.js Version Manager (nvm)**
+
+[nvm](https://github.com/nvm-sh/nvm)
+
+[nvm commands](https://developpaper.com/nvm-command-line-use/)
+
+[nvm commands cheat sheet](https://gist.github.com/chranderson/b0a02781c232f170db634b40c97ff455)
+
+[nvm for windows, no wsl required](https://github.com/coreybutler/nvm-windows)
+
+[Installation guide for Windows 10 within WSL](https://github.com/anamikarec/nvm-installation-guide-for-windows-10)
+
+
 ## WSL
 
 [Installation guide for Windows 10](https://docs.microsoft.com/en-us/windows/wsl/install-win10)
